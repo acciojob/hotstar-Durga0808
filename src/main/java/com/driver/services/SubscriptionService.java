@@ -33,17 +33,19 @@ public class SubscriptionService {
 
         int totalAmoutToPay=0;
         if(subscription.getSubscriptionType().equals(SubscriptionType.BASIC)){
-            totalAmoutToPay=(500+(200*noOfScreensRequired));
+            totalAmoutToPay=(500+(200 * noOfScreensRequired));
         }else if(subscription.getSubscriptionType().equals(SubscriptionType.PRO)){
-            totalAmoutToPay=(800+(250*noOfScreensRequired));
+            totalAmoutToPay=(800+(250 * noOfScreensRequired));
         }else{
-            totalAmoutToPay=(1000+(350*noOfScreensRequired));
+            totalAmoutToPay=(1000+(350 * noOfScreensRequired));
         }
         subscription.setTotalAmountPaid(totalAmoutToPay);
         subscription.setUser(user);
+        Date purchasedate=new Date();
+        subscription.setStartSubscriptionDate(purchasedate);
         user.setSubscription(subscription);
         subscriptionRepository.save(subscription);
-        //userRepository.save(user);
+        userRepository.save(user);
 
         return totalAmoutToPay;
     }
@@ -75,9 +77,10 @@ public class SubscriptionService {
             subscription.setSubscriptionType(SubscriptionType.ELITE);
             currAmouttopay=(200+(100*subscription.getNoOfScreensSubscribed()));
         }
-        subscription.setTotalAmountPaid(prevAmoutPaid+currAmouttopay);
+        int totalamout=prevAmoutPaid+currAmouttopay;
+        subscription.setTotalAmountPaid(totalamout);
         user.setSubscription(subscription);
-       // userRepository.save(user);
+        userRepository.save(user);
         subscriptionRepository.save(subscription);
 
         return currAmouttopay;

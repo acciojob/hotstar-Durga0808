@@ -10,7 +10,6 @@ public class SubscriptionTransformer {
         Subscription subscription=new Subscription();
         subscription.setSubscriptionType(subscriptionEntryDto.getSubscriptionType());
         subscription.setNoOfScreensSubscribed(subscription.getNoOfScreensSubscribed());
-        subscription.setStartSubscriptionDate(new Date());
         return subscription;
     }
 }

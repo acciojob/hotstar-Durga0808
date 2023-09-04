@@ -51,7 +51,8 @@ public class WebSeriesService {
         for(WebSeries series:webSeriesList){
             productionHouseAllSeariesRating+=series.getRating();
         }
-        double productionHouseAvgRating=productionHouseAllSeariesRating/webSeriesList.size();
+        int size=webSeriesList.size();
+        double productionHouseAvgRating=productionHouseAllSeariesRating/size;
         productionHouse.setRatings(productionHouseAvgRating);
         productionHouseRepository.save(productionHouse);
 
