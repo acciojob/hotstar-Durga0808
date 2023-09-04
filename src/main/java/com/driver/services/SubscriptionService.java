@@ -44,8 +44,8 @@ public class SubscriptionService {
         Date purchasedate=new Date();
         subscription.setStartSubscriptionDate(purchasedate);
         user.setSubscription(subscription);
-       // subscriptionRepository.save(subscription);
-       // userRepository.save(user);
+        subscriptionRepository.save(subscription);
+        userRepository.save(user);
 
         return subscription.getTotalAmountPaid();
     }
@@ -80,7 +80,7 @@ public class SubscriptionService {
         int totalamout=prevAmoutPaid+currAmouttopay;
         subscription.setTotalAmountPaid(totalamout);
         user.setSubscription(subscription);
-       // userRepository.save(user);
+        userRepository.save(user);
         subscriptionRepository.save(subscription);
 
         return currAmouttopay;

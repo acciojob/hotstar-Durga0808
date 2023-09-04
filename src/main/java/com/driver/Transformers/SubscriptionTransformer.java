@@ -9,7 +9,7 @@ public class SubscriptionTransformer {
     public static Subscription convertDtoIntoEntity(SubscriptionEntryDto subscriptionEntryDto){
         Subscription subscription=new Subscription();
         subscription.setSubscriptionType(subscriptionEntryDto.getSubscriptionType());
-        subscription.setNoOfScreensSubscribed(subscription.getNoOfScreensSubscribed());
+        subscription.setNoOfScreensSubscribed(subscriptionEntryDto.getNoOfScreensRequired());
         return subscription;
     }
 }
