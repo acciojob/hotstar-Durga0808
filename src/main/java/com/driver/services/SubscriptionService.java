@@ -47,7 +47,7 @@ public class SubscriptionService {
         subscriptionRepository.save(subscription);
         userRepository.save(user);
 
-        return subscription.getTotalAmountPaid();
+        return totalAmoutToPay;
     }
 
     public Integer upgradeSubscription(Integer userId)throws Exception{
