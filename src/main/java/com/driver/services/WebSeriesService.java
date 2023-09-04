@@ -42,7 +42,7 @@ public class WebSeriesService {
         }
 
         webSeries.setProductionHouse(productionHouse);
-        webSeriesRepository.save(webSeries);
+        webSeries=webSeriesRepository.save(webSeries);
 
         List<WebSeries> webSeriesList=productionHouse.getWebSeriesList();
         webSeriesList.add(webSeries);
